@@ -15,7 +15,7 @@ def row0(kb):
     level = round((psutil.sensors_battery()[0]/100)*15)
     values = [0,0,15,0,0,0]
     for i in range(15):
-        if i <= level:
+        if i < level:
             values+=[0,0xff,0]
         else:
             values+=[0xff,0xff,0xff]
@@ -23,11 +23,11 @@ def row0(kb):
     return
 
 def row1(kb):
-    # fuckin cpu bitch
+    # cpu
     level = round((psutil.cpu_percent()/100)*15)
     values = [1,0,15,0,0,0]
     for i in range(15):
-        if i <= level:
+        if i < level:
             values+=[0xff,0,0]
         else:
             values+=[0xff,0xff,0xff]
@@ -39,7 +39,7 @@ def row2(kb):
     level = round((psutil.virtual_memory()[2]/100)*15)
     values = [2,0,15,0,0,0]
     for i in range(15):
-        if i <= level:
+        if i < level:
             values+=[0xff,153,0]
         else:
             values+=[0xff,0xff,0xff]
@@ -70,9 +70,9 @@ def row3(kb):
     upload_level = round(15*(upload/(download_avg*2)))
     values = [3,0,15,0,0,0]
     for i in range(15):
-        if i <= upload_level:
+        if i < upload_level:
             values+=[0,0xff,0xff]
-        elif i <= download_level:
+        elif i < download_level:
             values+=[0,0,0xff]
         else:
             values+=[0xff,0xff,0xff]
@@ -83,7 +83,7 @@ def row4(kb):
     level = 0
     values = [4,0,15,0,0,0]
     for i in range(15):
-        if i <= level:
+        if i < level:
             values+=[0xff,0xff,0xff]
         else:
             values+=[0xff,0xff,0xff]
@@ -94,7 +94,7 @@ def row5(kb):
     level = 0
     values = [5,0,15,0,0,0]
     for i in range(15):
-        if i <= level:
+        if i < level:
             values+=[0xff,0xff,0xff]
         else:
             values+=[0xff,0xff,0xff]
